@@ -1,36 +1,100 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Odd Duck</title>
-    <meta name="description" content="" />
-    <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/main.css" />
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  </head>
-  <body>
-    <header>
-      <nav>
-        <ul>
-          <li>
-            <a href="index.html">Home Page</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
-    <main>
-      <aside>
-        <!-- add in the list items for vote totals -->
-      </aside>
-      <article>
-        <img src="" id="" />
-        <img src="" id="" />
-        <img src="" id="" />
-      </article>
-    </main>
-    <footer>
-      <!-- add in the chart to see results  -->
-    </footer>
-    <script src="js/app.js"></script>
-  </body>
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title></title>
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="css/reset.css">
+      <link rel="stylesheet" href="css/main.css">
+      <link rel="stylesheet" href="css/grid.css">
+      <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
+
+   </head>
+   <body>
+      <header>
+         <h1>Pizza Tracking</h1>
+         <a href="index.html">Home</a>
+      </header>
+      <!-- Add the Grid Container that holds all the Grid items -->
+      <div class="grid">
+         <!-- Add row and column -->
+         <section class="row-full column-a">
+            <ul id="pizza-clicks">
+               <h2>Pizza Likes</h2>
+               <li>Brick Oven Pizza: 0</li>
+               <li>Calzone Pizza : 0</li>
+               <li>Chicago Pizza : 0</li>
+               <li>Oven Grinder Pizza : 0</li>
+               <li>Thin Crust Pizza : 0</li>
+               <li>New York Style : 0</li>
+               <li>Detroit Style Pizza : 0</li>
+               <li>Shot Gun Dans Pizza : 0</li>
+            </ul>
+         </section>
+         <!-- houses our images that we click on  -->
+
+         <section id="all_pizzas"    class="row-full column-b flexFloat">
+            <h2>Pizza Pictures</h2>
+
+            <div id="left_pizza">
+               <img id="left_pizza_img" src="images/mwDeluxePizzaThinCrust.jpg" />
+               <h2>What is your favorite Pizza?</h2>
+            </div>
+
+            <div id="right_pizza">
+               <img id="right_pizza_img" src="images/chicagoPizza.jpg"/>
+               <h2>Vote Five Times.</h2>
+            </div>
+           
+            <canvas id="pizzaChart" width="500" height="500"></canvas>
+         </section>
+        
+
+         <div class="column-c">
+         <button  type="submit" id="resultsList">Click to See Results List</button>
+         <button  type="submit" id="chartResults">Click to See Chart Results</button>
+         </div>
+         
+
+
+
+         <!-- Add addition content an: Aside with links -->
+         <aside class="row-full column-d">
+            <h2>Facts About Pizzas</h2>
+            <h4>
+               <a href="https://en.wikipedia.org/wiki/Pizza">From Wikipedia</a>
+            </h4>
+            <p><b>Pizza</b>(<small>Italian:&nbsp;</small>
+               <span title="Representation in the International Phonetic Alphabet (IPA)" class="IPA">
+               <a href="/wiki/Help:IPA/Italian" title="Help:IPA/Italian">[ˈpittsa]</a>
+               </span>, 
+               <small>Neapolitan:&nbsp;</small>
+               <span title="Representation in the International Phonetic Alphabet (IPA)" class="IPA">
+               <a href="/wiki/Help:IPA/Neapolitan" title="Help:IPA/Neapolitan">[ˈpittsə]</a>
+               </span>) is a 
+               <a href="/wiki/Dish_(food)" title="Dish (food)">dish</a> of 
+               <a href="/wiki/Italian_cuisine" title="Italian cuisine">Italian</a> origin consisting of a usually round, flat base of 
+               <a href="/wiki/Leavening_agent" title="Leavening agent">leavened</a> wheat-based 
+               <a href="/wiki/Dough" title="Dough">dough</a> topped with 
+               <a href="/wiki/Tomatoes" class="mw-redirect" title="Tomatoes">tomatoes</a>, <a href="/wiki/Cheese" title="Cheese">cheese</a>, and often various other ingredients (such as 
+               <a href="/wiki/Anchovies" class="mw-redirect" title="Anchovies">anchovies</a>, 
+               <a href="/wiki/Edible_mushroom" title="Edible mushroom">mushrooms</a>, 
+               <a href="/wiki/Onions" class="mw-redirect" title="Onions">onions</a>, <a href="/wiki/Olives" class="mw-redirect" title="Olives">olives</a>, 
+               <a href="/wiki/Pineapple" title="Pineapple">pineapple</a>,
+               <a href="/wiki/Meat" title="Meat">meat</a>, etc.), which is then baked at a high temperature, traditionally in a
+               <a href="/wiki/Wood-fired_oven" class="mw-redirect" title="Wood-fired oven">wood-fired oven</a>.
+               <sup id="cite_ref-1" class="reference">
+               <a href="#cite_note-1">[1]</a>
+               </sup> A small pizza is sometimes called a 
+               <a href="/wiki/Pizzetta" title="Pizzetta">pizzetta</a>. A person who makes pizza is known as a <b>pizzaiolo</b>.
+            </p>
+            <p>The term <i>pizza</i> was first recorded in the 10th century in a <a href="/wiki/Latin" title="Latin">Latin</a> manuscript from the <a href="/wiki/Southern_Italy" title="Southern Italy">Southern Italian</a> town of <a href="/wiki/Gaeta" title="Gaeta">Gaeta</a> in <a href="/wiki/Lazio" title="Lazio">Lazio</a>, on the border with <a href="/wiki/Campania" title="Campania">Campania</a>.<sup id="cite_ref-MartinMaiden_4-0" class="reference"><a href="#cite_note-MartinMaiden-4">[4]</a></sup> Modern pizza was invented in <a href="/wiki/Naples" title="Naples">Naples</a>, and the dish and its variants have since become popular in many countries.<sup id="cite_ref-Miller_5-0" class="reference"><a href="#cite_note-Miller-5">[5]</a></sup> It has become one of the most popular foods in the world and a common <a href="/wiki/Fast_food" title="Fast food">fast food</a> item in <a href="/wiki/Europe" title="Europe">Europe</a>, <a href="/wiki/North_America" title="North America">North America</a> and <a href="/wiki/Australasia" title="Australasia">Australasia</a>; available at <a href="/wiki/List_of_pizza_chains" title="List of pizza chains">pizzerias</a> (restaurants specializing in pizza),  restaurants offering <a href="/wiki/Mediterranean_cuisine" title="Mediterranean cuisine">Mediterranean cuisine</a>, via <a href="/wiki/Pizza_delivery" title="Pizza delivery">pizza delivery</a>, and as <a href="/wiki/Street_food" title="Street food">street food</a>.<sup id="cite_ref-Miller_5-1" class="reference"><a href="#cite_note-Miller-5">[5]</a></sup> Various food companies sell ready-baked pizzas, which may be <a href="/wiki/Frozen_food" title="Frozen food">frozen</a>, in <a href="/wiki/Grocery_store" title="Grocery store">grocery stores</a>, to be reheated in a home <a href="/wiki/Oven" title="Oven">oven</a>.
+            </p>
+         </aside>
+      </div>
+      <!--This closes our grid container.-->
+      <script src="js/app.js" ></script>
+   </body>
 </html>
