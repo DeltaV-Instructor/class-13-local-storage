@@ -7,6 +7,7 @@ let totalClicks = 0;
 const allPizzas = [];
 //create an array to store previously clicked Pizzas
 let previouslyPickedPizzas = [];
+
 let leftPizzaOnThePage;
 let rightPizzaOnThePage;
 
@@ -109,16 +110,18 @@ function handleClickOnPizza(event){
     rightPizzaOnThePage.timesClicked++;
   }
 
-  const tempPickedPizzas = [];
+  let tempPickedPizzas = [];
 
   let leftPizzaIndex;
   do{
+
     leftPizzaIndex = Math.floor(Math.random() * allPizzas.length);
+    console.log('left pizza index',leftPizzaIndex);
+
   } while (previouslyPickedPizzas.includes(allPizzas[leftPizzaIndex]) || tempPickedPizzas.includes(allPizzas[leftPizzaIndex])
   );
   tempPickedPizzas.push(allPizzas[leftPizzaIndex]);
-
-
+  
 
   let rightPizzaIndex;
   do{
@@ -129,18 +132,28 @@ function handleClickOnPizza(event){
   );
   tempPickedPizzas.push(allPizzas[rightPizzaIndex]);
 
+
+  console.log('temp pizza array', tempPickedPizzas);
+  console.log('prev pizza array', previouslyPickedPizzas);
+
+
+
+
+
   leftPizzaOnThePage = allPizzas[leftPizzaIndex];
   rightPizzaOnThePage = allPizzas[rightPizzaIndex];
+
+  console.log('left pic',leftPizzaOnThePage.imageSrc);
 
   leftPizzaImage.src = leftPizzaOnThePage.imageSrc;
   rightPizzaImage.src = rightPizzaOnThePage.imageSrc;
 
   previouslyPickedPizzas = [];
+
   previouslyPickedPizzas.push(allPizzas[leftPizzaIndex]);
   previouslyPickedPizzas.push(allPizzas[rightPizzaIndex]);
 
-  if(totalClicks === 5){
-
+  if(totalClicks === 15){
     pizzaImageSectionTag.removeEventListener('click', handleClickOnPizza);
     localStorage.setItem('savedPizza', JSON.stringify(allPizzas));
   }
@@ -178,14 +191,6 @@ chartResults.addEventListener('click', handleChartResults);
 
 
 
-// function getPizzaArray(nameOfThePropertyIWant){
-//   let answer = [];
-//   for(let i = 0; i < allPizzas.length; i++){
-//     answer[i] = allPizzas[i][nameOfThePropertyIWant];
-//   }
-//   console.log(answer);
-//   return answer;
-// }
 function makeAPizzaChart(){
   console.log(document.getElementById('pizzaChart'));
 
